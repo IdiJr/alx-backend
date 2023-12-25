@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module with a helper function for pagination and a Server class
+Module with a helper function for pagination and a Server class.
 """
 
 import csv
