@@ -42,11 +42,14 @@ class Server:
         assert isinstance(page, int) and isinstance(page_size, int)
         assert page > 0 and page_size > 0
 
-        # Calculate start and end indexes using index_range function
-        start_index, end_index = index_range(page, page_size)
+        indices = index_range(page, page_size)
+        start = indices[0]
+        end = indices[1]
 
-        # Return the appropriate page of the dataset
-        return self.dataset()[start_index:end_index]
+        try:
+            return self.dataset()[start:end]
+        except IndexError:
+            return []
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
