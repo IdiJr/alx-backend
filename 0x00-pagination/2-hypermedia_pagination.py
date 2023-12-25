@@ -64,26 +64,15 @@ class Server:
                 prev_page - number of previous page if there is one
                 total_pages - total number of pages
         """
+        page_data = self.get_page(page, page_size)
+        total_data = len(self.dataset())
+        total_pages = ceil(total_data / page_size)
 
-        # Get the dataset page using the get_page method
-        data_page = self.get_page(page, page_size)
-
-        # Calculate start and end indexes for the current page
-        start_index, end_index = index_range(page, page_size)
-
-        # Calculate total pages in the dataset
-        total_pages = ceil(len(self.dataset()) / page_size)
-
-        # Calculate next and previous pages
-        next_page = page + 1 if end_index < len(self.dataset()) else None
-        prev_page = page - 1 if start_index > 0 else None
-
-        # Return the dictionary with pagination details
         return {
-            'page_size': len(data_page),
+            'page_size': len(page_data),
             'page': page,
-            'data': data_page,
-            'next_page': next_page,
-            'prev_page': prev_page,
+            'data': page_data,
+            'next_page': page + 1 if page < total_pages else None,
+            'prev_page': page - 1 if page != 1 else None,
             'total_pages': total_pages
         }
