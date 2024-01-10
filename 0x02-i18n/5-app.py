@@ -64,7 +64,7 @@ def get_user(user_id):
 def before_request():
     """ Finds user and sets as global on flask.g.user """
     user_id = request.args.get('login_as')
-    
+
     # Set user as global on flask.g.user
     g.user = get_user(int(user_id)) if user_id else None
 
