@@ -38,7 +38,7 @@ app.register_blueprint(app_routes)
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index() -> str:
     """ GET /
-    Return: 4-index.html
+    Return: 6-index.html
     """
     return render_template(
         '6-index.html', title=_('home_title'),
@@ -50,13 +50,14 @@ def index() -> str:
 def get_locale() -> str:
     """ Determines best match for supported languages """
     # check if there is a locale parameter/query string
-    if 'locale' in request.args and request.args['locale'] in app.config['LANGUAGES']:
+    if 'locale' in request.args and \
+            request.args['locale'] in app.config['LANGUAGES']:
         return request.args['locale']
-    
+
     # Check if a user is logged in and has a preferred locale
     if g.user and g.user['locale'] in app.config['LANGUAGES']:
         return g.user['locale']
-    
+
     # Resort to the default behavior if no preferred locale is found
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -70,7 +71,7 @@ def get_user(user_id):
 def before_request():
     """ Finds user and sets as global on flask.g.user """
     user_id = request.args.get('login_as')
-    
+
     # Set user as global on flask.g.user
     g.user = get_user(int(user_id)) if user_id else None
 
