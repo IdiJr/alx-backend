@@ -1,5 +1,5 @@
 # 0x02. i18n
-![](./pic.jpeg)
+![pic](./pic.jpeg)
 This project contains tasks that are performed to understand the following concepts:
 - Learn how to parametrize Flask templates to display different languages
 - Learn how to infer the correct locale based on URL parameters, user settings or request headers
