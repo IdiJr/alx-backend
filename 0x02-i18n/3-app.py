@@ -10,6 +10,7 @@ app = Flask(__name__)
 # Instantiate Babel object
 babel = Babel(app)
 
+
 class Config:
     """ Config class for configuring available
     languages, default locale, and timezone
@@ -17,6 +18,7 @@ class Config:
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
+
 
 app.config.from_object(Config)
 app.register_blueprint(app_routes)
