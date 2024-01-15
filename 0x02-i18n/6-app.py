@@ -4,7 +4,7 @@
 
 from flask import Flask, render_template, g, request
 from os import getenv
-from flask_babel import Babel, _
+from flask_babel import Babel
 from routes.routes_6 import app_routes
 
 app = Flask(__name__)
