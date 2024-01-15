@@ -40,10 +40,7 @@ def index() -> str:
     """ GET /
     Return: 6-index.html
     """
-    return render_template(
-        '6-index.html', title=_('home_title'),
-        header=_('home_header')
-    )
+    return render_template('6-index.html')
 
 
 @babel.localeselector
