@@ -10,7 +10,7 @@ This project contains tasks that were prformed to understand the following conce
 - How to the build a basic Express app interacting with a Redis server and queue
 
 ![](https://static.javatpoint.com/ds/images/ds-types-of-queue2.png)
-![](./Queuing systems.png)
+![](./Queuingsystems.png)
 
 ## Resources
 ### Read or watch
